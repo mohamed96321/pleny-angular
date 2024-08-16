@@ -1,0 +1,10 @@
+<div class="product-list">
+  <div class="products">
+    <app-product-card *ngFor="let product of products$ | async" [product]="product"></app-product-card>
+  </div>
+  <app-pagination
+    [currentPage]="currentPage"
+    [totalPages]="totalPages"
+    (pageChange)="onPageChange($event)">
+  </app-pagination>
+</div>

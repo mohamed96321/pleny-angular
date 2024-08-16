@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <div class="logo">ClickTik</div>
+  <ng-container *ngIf="isAuthenticated$ | async">
+    <div class="search-bar">
+      <app-search-bar></app-search-bar>
+    </div>
+  </ng-container>
+  <div class="user-actions">
+    <ng-container *ngIf="isAuthenticated$ | async; else loginButton">
+      <p style="margin: 2px;">Account</p>
+    </ng-container>
+    <ng-template #loginButton>
+      <button (click)="navigateToLogin()">Login</button>
+    </ng-template>
+  </div>
+</nav>
