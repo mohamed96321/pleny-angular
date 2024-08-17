@@ -12,3 +12,22 @@
     margin-bottom: 20px;
   }
 }
+
+.product-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  margin-right: 20px;
+}
+
+.product-list {
+  flex: 1;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

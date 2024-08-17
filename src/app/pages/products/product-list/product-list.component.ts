@@ -17,6 +17,8 @@ export class ProductListComponent implements OnInit {
   currentPage = 1;
   totalPages = 10; // Example value; adjust based on your total product count and page size
 
+  selectedCategory: string = ''; // Track the selected category
+
   constructor(private store: Store) {}
 
   ngOnInit(): void {
@@ -27,7 +29,13 @@ export class ProductListComponent implements OnInit {
   loadProducts(): void {
     const limit = 10;
     const skip = (this.currentPage - 1) * limit;
-    this.store.dispatch(loadProducts({ limit, skip }));
+    if (this.selectedCategory) {
+      // Fetch products by selected category
+      this.store.dispatch(loadProductsByCategory({ category: this.selectedCategory }));
+    } else {
+      // Fetch all products
+      this.store.dispatch(loadProducts({ limit, skip }));
+    }
   }
 
   onPageChange(page: number): void {
@@ -40,6 +48,7 @@ export class ProductListComponent implements OnInit {
   }
 
   onCategorySelect(category: string): void {
-    this.store.dispatch(loadProductsByCategory({ category }));
+    this.selectedCategory = category;
+    this.loadProducts();
   }
 }
