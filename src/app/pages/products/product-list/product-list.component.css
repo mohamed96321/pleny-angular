@@ -17,11 +17,6 @@
   display: flex;
 }
 
-.sidebar {
-  width: 250px;
-  margin-right: 20px;
-}
-
 .product-list {
   flex: 1;
 }
@@ -30,4 +25,58 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  color: #444;
+}
+
+.sidebar li:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.sidebar li.active {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+.product-list {
+  flex: 1;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.product-list app-pagination {
+  margin-top: 20px;
+  text-align: center;
 }
