@@ -1,8 +1,8 @@
 <div class="product-container">
   <div class="sidebar">
-    <h3>Categories</h3>
+    <h3>Products</h3>
     <ul>
-      <li (click)="onCategorySelect('')">All Products</li> <!-- 'All Products' option -->
+      <li (click)="onCategorySelect('')">All Products</li>
       <li *ngFor="let category of categories$ | async" (click)="onCategorySelect(category)">
         {{ category }}
       </li>
